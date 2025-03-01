@@ -72,9 +72,9 @@ export default () => {
               }}
             >
               {state ? (
-                <XIcon className="text-foreground" />
+                <XIcon className="text-primary-foreground" />
               ) : (
-                <AlignRight className="text-foreground" />
+                <AlignRight className="text-primary-foreground" />
               )}
             </Button>
           </div>

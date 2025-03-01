@@ -31,7 +31,7 @@ export default () => {
 
   return (
     <nav
-      className={`bg-white border-b transition-all duration-500 md:text-sm ${
+      className={`bg-white dark:bg-black border-b-[0.5px] transition-all duration-500 md:text-sm ${
         state
           ? "shadow-lg rounded-xl border mx-2 mt-2 md:shadow-none md:border-none md:mx-2 md:mt-0"
           : ""
@@ -45,6 +45,14 @@ export default () => {
               width={80}
               height={40}
               alt="Logo"
+              className="dark:hidden"
+            />
+            <img
+              src="/images/logo_bg_black.png"
+              width={80}
+              height={40}
+              alt="Logo"
+              className="hidden dark:block"
             />
           </a>
           <div className="md:hidden">

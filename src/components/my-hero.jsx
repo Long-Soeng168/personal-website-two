@@ -25,12 +25,12 @@ export function MyHero() {
 
   return (
     <BackgroundBeamsWithCollision
-      className={`h-[35rem] md:h-[33rem] w-full dark:bg-transparent bg-transparent  dark:bg-dot-white/[0.4] bg-dot-black/[0.4] relative`}
+      className={`h-[35rem] md:h-[33rem] w-full border-b-[0.5px] dark:bg-transparent bg-transparent  dark:bg-dot-white/[0.4] bg-dot-black/[0.4] relative`}
     >
       <div className="flex flex-col justify-between w-full gap-8 px-8 lg:flex-row">
         <div className="flex items-center justify-center flex-1">
           {/* Replace with your image */}
-          <div className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm mx-auto relative w-[20rem] lg:w-[26rem] aspect-square">
+          <div className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start max-w-sm mx-auto relative w-[18rem] lg:w-[26rem] aspect-square">
             <Icon className="absolute w-6 h-6 text-black -top-3 -left-3 dark:text-white" />
             <Icon className="absolute w-6 h-6 text-black -bottom-3 -left-3 dark:text-white" />
             <Icon className="absolute w-6 h-6 text-black -top-3 -right-3 dark:text-white" />
@@ -50,7 +50,7 @@ export function MyHero() {
           </div>
           <h2 className="relative z-20 font-sans text-4xl font-bold tracking-tight text-center text-black lg:text-start lg:text-7xl dark:text-white">
             Long Soeng
-            <div className=" relative mx-auto block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
+            <div className="relative mx-auto block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
               <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-purple-500 via-violet-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
                 <TypewriterEffect key={key} words={words} />
               </div>

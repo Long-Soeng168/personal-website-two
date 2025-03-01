@@ -128,7 +128,7 @@
 }
 
 .rainbow-button {
-  border: calc(0.2 * var(--m)) solid transparent;
+  border: calc(0.18 * var(--m)) solid transparent;
   position: relative;
   color: #f3f3f3;
   font-size: 1.2rem;

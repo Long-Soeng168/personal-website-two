@@ -148,7 +148,7 @@ export function MyTimeline() {
     },
   ];
   return (
-    <div className="w-full">
+    <div className="w-full overflow-hidden">
       <div className="px-4 pt-40 mx-auto max-w-7xl md:px-8 lg:px-10">
         <h2 className="max-w-4xl mb-4 text-lg text-black md:text-4xl dark:text-white">
           Changelog from my journey

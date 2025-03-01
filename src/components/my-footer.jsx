@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Tooltip,
   TooltipContent,
@@ -17,52 +16,57 @@ import {
   Instagram,
   Linkedin,
   Moon,
-  Send,
   Sun,
   Twitter,
 } from "lucide-react";
+import MyLogo from "./my-logo";
+import { StarsBackground } from "./ui/stars-background";
+import { BackgroundBeams } from "./ui/background-beams";
 
 export default function Footerdemo() {
-  const [isDarkMode, setIsDarkMode] = React.useState(() => {
-    return localStorage.getItem("darkMode") === "true";
-  });
-  const [isChatOpen, setIsChatOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    localStorage.setItem("darkMode", isDarkMode);
-  }, [isDarkMode]);
-
   return (
     <footer className="relative transition-colors duration-300 border-t bg-background text-foreground">
+      <div className="h-[40rem] w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased">
+        <div className="max-w-2xl p-4 mx-auto">
+          <img
+            src="/images/logo_bg_black.png"
+            width={80}
+            height={40}
+            alt="Logo"
+          />
+          <h1 className="relative z-10 font-sans text-lg font-bold text-center text-transparent md:text-7xl bg-clip-text bg-gradient-to-b from-neutral-200 to-neutral-600">
+            Join the waitlist
+          </h1>
+          <p></p>
+          <p className="relative z-10 max-w-lg mx-auto my-2 text-sm text-center text-neutral-500">
+            Welcome to MailJet, the best transactional email service on the web.
+            We provide reliable, scalable, and customizable email solutions for
+            your business. Whether you&apos;re sending order confirmations,
+            password reset emails, or promotional campaigns, MailJet has got you
+            covered.
+          </p>
+          <input
+            type="text"
+            placeholder="hi@manuarora.in"
+            className="relative z-10 w-full mt-4 border rounded-lg border-neutral-800 focus:ring-2 focus:ring-teal-500 bg-neutral-950 placeholder:text-neutral-700"
+          />
+        </div>
+        <BackgroundBeams />
+        <StarsBackground />
+      </div>
+      {/*  */}
+      <div className="h-[40rem] bg-neutral-900 flex flex-col items-center justify-center relative w-full">
+        <h2 className="relative z-10 flex flex-col items-center max-w-5xl gap-2 mx-auto text-3xl font-medium tracking-tight text-center text-transparent md:flex-row md:text-5xl md:leading-tight bg-clip-text bg-gradient-to-b from-neutral-800 via-white to-white md:gap-8">
+          <span>Shooting Star</span>
+          <span className="text-lg font-thin text-white">x</span>
+          <span>Star Background</span>
+        </h2>
+      </div>
+      {/*  */}
       <div className="container px-4 py-12 mx-auto md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">
-              Stay Connected
-            </h2>
-            <p className="mb-6 text-muted-foreground">
-              Join our newsletter for the latest updates and exclusive offers.
-            </p>
-            <form className="relative">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="pr-12 backdrop-blur-sm"
-              />
-              <Button
-                type="submit"
-                size="icon"
-                className="absolute w-8 h-8 transition-transform rounded-full right-1 top-1 bg-primary text-primary-foreground hover:scale-105"
-              >
-                <Send className="w-4 h-4" />
-                <span className="sr-only">Subscribe</span>
-              </Button>
-            </form>
+            <MyLogo />
             <div className="absolute top-0 w-24 h-24 rounded-full -right-4 bg-primary/10 blur-2xl" />
           </div>
           <div>
@@ -181,18 +185,6 @@ export default function Footerdemo() {
                 </Tooltip>
               </TooltipProvider>
             </div>
-            <div className="flex items-center space-x-2">
-              <Sun className="w-4 h-4" />
-              <Switch
-                id="dark-mode"
-                checked={isDarkMode}
-                onCheckedChange={setIsDarkMode}
-              />
-              <Moon className="w-4 h-4" />
-              <Label htmlFor="dark-mode" className="sr-only">
-                Toggle dark mode
-              </Label>
-            </div>
           </div>
         </div>
         <div className="flex flex-col items-center justify-between gap-4 pt-8 mt-12 text-center border-t md:flex-row">
@@ -212,32 +204,6 @@ export default function Footerdemo() {
           </nav>
         </div>
       </div>
-      <Button
-        onClick={() => setIsChatOpen(!isChatOpen)}
-        className="fixed z-50 rounded-full shadow-lg bottom-4 right-4"
-      >
-        {isChatOpen ? "Close Chat" : "Open Chat"}
-      </Button>
-      {isChatOpen && (
-        <div className="fixed z-50 p-4 border rounded-lg shadow-lg bottom-20 right-4 w-80 bg-background">
-          <h4 className="mb-4 text-lg font-semibold">Live Chat</h4>
-          <div className="h-40 p-2 mb-4 overflow-y-auto border rounded">
-            <p className="mb-2">
-              <strong>Support:</strong> Hello! How can I assist you today?
-            </p>
-          </div>
-          <form className="flex gap-2">
-            <Textarea
-              placeholder="Type your message..."
-              className="flex-grow"
-            />
-            <Button type="submit" size="icon">
-              <Send className="w-4 h-4" />
-              <span className="sr-only">Send message</span>
-            </Button>
-          </form>
-        </div>
-      )}
     </footer>
   );
 }

@@ -1,8 +1,11 @@
 "use client";
-import { AlignRight, DownloadIcon, XIcon } from "lucide-react";
+import { AlignRight, DownloadIcon, Moon, Sun, XIcon } from "lucide-react";
 import { Poppins } from "next/font/google";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
+import MyLogo from "./my-logo";
+import { Label } from "./ui/label";
+import { Switch } from "./ui/switch";
 
 const poppins = Poppins({
   className: "font-poppins",
@@ -13,6 +16,23 @@ const poppins = Poppins({
 
 export default () => {
   const [state, setState] = useState(false);
+
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // Run this only on the client side after mounting
+  useEffect(() => {
+    const storedDarkMode = localStorage.getItem("darkMode") === "true";
+    setIsDarkMode(storedDarkMode);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", isDarkMode);
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
 
   // Replace javascript:void(0) paths with your paths
   const navigation = [
@@ -40,20 +60,7 @@ export default () => {
       <div className="items-center max-w-screen-xl px-4 mx-auto gap-x-14 md:flex md:px-8">
         <div className="flex items-center justify-between py-4 md:block">
           <a href="/">
-            <img
-              src="/images/logo_bg_white.png"
-              width={80}
-              height={40}
-              alt="Logo"
-              className="dark:hidden"
-            />
-            <img
-              src="/images/logo_bg_black.png"
-              width={80}
-              height={40}
-              alt="Logo"
-              className="hidden dark:block"
-            />
+            <MyLogo />
           </a>
           <div className="md:hidden">
             <Button
@@ -65,9 +72,9 @@ export default () => {
               }}
             >
               {state ? (
-                <XIcon className="text-white" />
+                <XIcon className="text-foreground" />
               ) : (
-                <AlignRight className="text-white" />
+                <AlignRight className="text-foreground" />
               )}
             </Button>
           </div>
@@ -82,7 +89,7 @@ export default () => {
               return (
                 <li
                   key={idx}
-                  className="text-lg text-gray-700 hover:text-primary"
+                  className="text-lg text-foreground hover:text-primary"
                 >
                   <a href={item.path} className="block animated-underline">
                     {item.title}
@@ -92,6 +99,18 @@ export default () => {
             })}
           </ul>
           <div className="items-center justify-end flex-1 py-4 mt-6 space-y-6 gap-x-6 md:flex md:space-y-0 md:mt-0">
+            <div className="flex items-center space-x-2">
+              <Sun className="w-4 h-4" />
+              <Switch
+                id="dark-mode"
+                checked={isDarkMode}
+                onCheckedChange={setIsDarkMode}
+              />
+              <Moon className="w-4 h-4" />
+              <Label htmlFor="dark-mode" className="sr-only">
+                Toggle dark mode
+              </Label>
+            </div>
             <a
               href="javascript:void(0)"
               className={`${poppins.className} z-40 rainbow-button flex items-center justify-center gap-4`}

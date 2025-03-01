@@ -28,7 +28,7 @@ export default function Footerdemo() {
   return (
     <footer className="relative transition-colors duration-300 bg-background text-foreground">
       <div className="w-full dark:bg-black bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative ">
-        <div className="flex flex-col items-center justify-center py-20">
+        <div className="flex flex-col items-center justify-center py-20 space-y-8">
           {/* Logo */}
           <MyLogo />
           {/* Social Media */}
@@ -36,15 +36,10 @@ export default function Footerdemo() {
             <MySocialMedia />
           </div>
         </div>
-        <div className="flex flex-col items-center justify-between w-full gap-4 px-4 py-8 text-center md:flex-row">
-          <p className="text-sm text-muted-foreground">
+        <div className="flex flex-col items-center justify-center w-full gap-4 px-4 py-8 text-center md:flex-row">
+          <p className="text-lg text-muted-foreground">
             © 2025 <strong>Long Soeng</strong>. All rights reserved.
           </p>
-          <nav className="flex gap-4 text-sm">
-            <a href="/" className="transition-colors hover:text-primary">
-              By : Long Soeng
-            </a>
-          </nav>
         </div>
       </div>
     </footer>

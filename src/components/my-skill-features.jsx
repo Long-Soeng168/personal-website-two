@@ -9,6 +9,7 @@ import {
   IconRouteAltLeft,
   IconTerminal2,
 } from "@tabler/icons-react";
+import { TerminalIcon } from "lucide-react";
 
 export function MySkillFeatures() {
   const features = [
@@ -59,10 +60,28 @@ export function MySkillFeatures() {
     },
   ];
   return (
-    <div className="relative z-10 grid grid-cols-1 py-10 mx-auto md:grid-cols-2 lg:grid-cols-4 max-w-7xl">
-      {features.map((feature, index) => (
-        <Feature key={feature.title} {...feature} index={index} />
-      ))}
+    <div className="px-4 md:px-8 lg:px-10">
+      <div className="pt-40 mx-auto max-w-7xl ">
+        <div className="flex items-center">
+          <TerminalIcon className="font-bold text-primary" />
+          <p className="flex items-center gap-4">Skills</p>
+        </div>
+        <h2 className="max-w-4xl mb-4 text-lg font-semibold text-gray-600 md:text-5xl dark:text-white">
+          Main Skill specialist
+        </h2>
+        <p className="max-w-[38ch] text-xl text-neutral-700 dark:text-neutral-300 md:text-2xl">
+          There is varias of services that I do both as an employee and
+          freelancer
+        </p>
+        <p className="max-w-md text-xl text-neutral-700 dark:text-neutral-300 md:text-2xl">
+          Here's some of it.
+        </p>
+      </div>
+      <div className="relative z-10 grid grid-cols-1 py-10 mx-auto md:grid-cols-2 lg:grid-cols-4 max-w-7xl">
+        {features.map((feature, index) => (
+          <Feature key={feature.title} {...feature} index={index} />
+        ))}
+      </div>
     </div>
   );
 }
@@ -86,7 +105,7 @@ const Feature = ({ title, description, icon, index }) => {
         {icon}
       </div>
       <div className="relative z-10 px-10 mb-2 text-lg font-bold">
-        <div className="absolute inset-y-0 left-0 w-1 h-6 transition-all duration-200 origin-center rounded-tr-full rounded-br-full group-hover/feature:h-8 bg-neutral-300 dark:bg-neutral-700 group-hover/feature:bg-blue-500" />
+        <div className="absolute inset-y-0 left-0 w-1 h-6 transition-all duration-200 origin-center rounded-tr-full rounded-br-full group-hover/feature:h-8 group-hover/feature:w-2 bg-neutral-300 dark:bg-neutral-700 group-hover/feature:bg-primary" />
         <span className="inline-block transition duration-200 group-hover/feature:translate-x-2 text-neutral-800 dark:text-neutral-100">
           {title}
         </span>

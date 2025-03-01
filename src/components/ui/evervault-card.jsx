@@ -42,7 +42,7 @@ export const EvervaultCard = ({ children, className }) => {
         />
         <div className="relative z-10 flex items-center justify-center">
           <div className="relative flex items-center justify-center w-64 h-64 text-4xl font-bold text-white rounded-full">
-            <div className="absolute w-full h-full bg-white/[0.5] dark:bg-black/[0.5] rounded-full" />
+            <div className="absolute w-full h-full mx-auto my-4 transition-all duration-500 rounded-full bg-gradient-to-b from-yellow-200/80" />
             <span className="z-20 text-black dark:text-white">{children}</span>
           </div>
         </div>

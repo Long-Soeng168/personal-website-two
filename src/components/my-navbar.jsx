@@ -113,7 +113,7 @@ export default () => {
             </div>
             <a
               href="javascript:void(0)"
-              className={`${poppins.className} z-40 rainbow-button flex items-center justify-center gap-4`}
+              className={`${poppins.className} z-40 font-semibold rainbow-button flex items-center justify-center gap-4`}
             >
               <DownloadIcon size={18} />
               Resume

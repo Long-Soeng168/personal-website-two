@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
+import { ChevronDown, CodeIcon, SwordsIcon, TerminalIcon } from "lucide-react";
 
 export function MyTimeline() {
   const data = [
@@ -150,12 +151,19 @@ export function MyTimeline() {
   return (
     <div className="w-full overflow-hidden">
       <div className="px-4 pt-40 mx-auto max-w-7xl md:px-8 lg:px-10">
-        <h2 className="max-w-4xl mb-4 text-lg text-black md:text-4xl dark:text-white">
+        <div className="flex items-center">
+          <TerminalIcon className="font-bold text-primary" />
+          <p className="flex items-center gap-4">Work Experience</p>
+        </div>
+        <h2 className="max-w-4xl mb-4 text-lg font-semibold text-gray-600 md:text-5xl dark:text-white">
           Changelog from my journey
         </h2>
-        <p className="max-w-sm text-sm text-neutral-700 dark:text-neutral-300 md:text-base">
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
+        <p className="max-w-[38ch] text-xl text-neutral-700 dark:text-neutral-300 md:text-2xl">
+          I've been working in the software development field for the past 2
+          years.
+        </p>
+        <p className="max-w-md text-xl text-neutral-700 dark:text-neutral-300 md:text-2xl">
+          Here's a timeline of my journey.
         </p>
       </div>
       <Timeline data={data} />

@@ -11,10 +11,8 @@ import React from "react";
 const Page = () => {
   return (
     <div>
-      <header>
-        <nav>
-          <MyNavBar />
-        </nav>
+      <header className="sticky top-0 z-[100]">
+        <MyNavBar />
       </header>
 
       <main>

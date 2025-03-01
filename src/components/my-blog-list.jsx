@@ -18,7 +18,7 @@ const MyBlogList = () => {
           news content ...
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-12 py-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 py-10 sm:grid-cols-2 lg:grid-cols-3">
         <MyBlogCard />
         <MyBlogCard />
         <MyBlogCard />

@@ -1,66 +1,47 @@
-"use client";
-import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
-import { cn } from "@/lib/utils";
+import { Kantumruy_Pro } from "next/font/google";
+import React from "react";
 
-export function MyNavBar() {
-  return (
-    <div className="relative flex items-center justify-center w-full">
-      <Navbar className="top-2" />
-    </div>
-  );
-}
+const kantumruy = Kantumruy_Pro({
+  subsets: ["khmer"],
+  display: "swap",
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+});
+const MyNavBar = () => {
+  const navigation = [
+    { title: "Customers", path: "javascript:void(0)" },
+    { title: "Careers", path: "javascript:void(0)" },
+    { title: "Guides", path: "javascript:void(0)" },
+    { title: "Partners", path: "javascript:void(0)" },
+  ];
 
-function Navbar({ className }) {
-  const [active, setActive] = useState(null);
   return (
-    <div className={cn("top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}>
-      <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Services">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/web-dev">Web Development</HoveredLink>
-            <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-            <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Products">
-          <div className="grid grid-cols-2 gap-10 p-4 text-sm ">
-            <ProductItem
-              title="Algochurn"
-              href="https://algochurn.com"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
-              description="Prepare for tech interviews like never before."
-            />
-            <ProductItem
-              title="Tailwind Master Kit"
-              href="https://tailwindmasterkit.com"
-              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-              description="Production ready Tailwind css components for your next project"
-            />
-            <ProductItem
-              title="Moonbeam"
-              href="https://gomoonbeam.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-              description="Never write from scratch again. Go from idea to blog in minutes."
-            />
-            <ProductItem
-              title="Rogue"
-              href="https://userogue.com"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-              description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-            />
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Pricing">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
-        </MenuItem>
-      </Menu>
-    </div>
+    <nav className="w-full bg-white border-b md:border-0 md:static">
+      <div className="items-center max-w-screen-xl px-4 mx-auto md:flex md:px-8">
+        <div className="flex items-center justify-between py-3 md:py-5 md:block">
+          <a href="/">
+            <span className={`${kantumruy.className} text-3xl`}>ឡុង សឹង</span>
+          </a>
+        </div>
+        <div className="flex-1 pb-3 mt-8 justify-self-center md:block md:pb-0 md:mt-0">
+          <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+            {navigation.map((item, idx) => (
+              <li key={idx} className="text-gray-600 hover:text-indigo-600">
+                <a href={item.path}>{item.title}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="hidden w-[200px] h-[50px] md:inline-block">
+          <a
+            href="javascript:void(0)"
+            className={`${kantumruy.className} rainbow-button object-contain text-lg`}
+          >
+            Get Started
+          </a>
+        </div>
+      </div>
+    </nav>
   );
-}
+};
+
+export default MyNavBar;

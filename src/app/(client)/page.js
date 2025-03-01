@@ -2,7 +2,7 @@ import { MyBlogCard } from "@/components/my-blog-card";
 import MyFooter from "@/components/my-footer";
 import { MyHero } from "@/components/my-hero";
 import MyHeroTwo from "@/components/my-hero-two";
-import { MyNavBar } from "@/components/my-navbar";
+import MyNavBar from "@/components/my-navbar";
 import { MyServiceFeatures } from "@/components/my-service-features";
 import { MySkillFeatures } from "@/components/my-skill-features";
 import { MyTimeline } from "@/components/my-timeline";
